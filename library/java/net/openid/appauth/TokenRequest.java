@@ -14,11 +14,6 @@
 
 package net.openid.appauth;
 
-import static net.openid.appauth.AdditionalParamsProcessor.checkAdditionalParams;
-import static net.openid.appauth.Preconditions.checkNotEmpty;
-import static net.openid.appauth.Preconditions.checkNotNull;
-import static net.openid.appauth.Preconditions.checkNullOrNotEmpty;
-
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -36,6 +31,11 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
+import static net.openid.appauth.AdditionalParamsProcessor.checkAdditionalParams;
+import static net.openid.appauth.Preconditions.checkNotEmpty;
+import static net.openid.appauth.Preconditions.checkNotNull;
+import static net.openid.appauth.Preconditions.checkNullOrNotEmpty;
 
 /**
  * An OAuth2 token request. These are used to exchange codes for tokens, or exchange a refresh
@@ -489,7 +489,7 @@ public class TokenRequest {
     public Map<String, String> getRequestParameters() {
         Map<String, String> params = new HashMap<>();
         params.put(PARAM_GRANT_TYPE, grantType);
-        putIfNotNull(params, PARAM_REDIRECT_URI, redirectUri);
+//        putIfNotNull(params, PARAM_REDIRECT_URI, redirectUri);
         putIfNotNull(params, PARAM_CODE, authorizationCode);
         putIfNotNull(params, PARAM_REFRESH_TOKEN, refreshToken);
         putIfNotNull(params, PARAM_CODE_VERIFIER, codeVerifier);
